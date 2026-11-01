@@ -7,6 +7,9 @@
  */
 const CLIENT_ID_KEY = 'comicreader.clientId';
 
+/** Client ID van Johans app-registratie "Comic Reader" in Azure. */
+const DEFAULT_CLIENT_ID = '54740976-9ccd-41ee-9660-41ae18a51035';
+
 export function getClientId(): string {
   try {
     const local = localStorage.getItem(CLIENT_ID_KEY);
@@ -14,7 +17,7 @@ export function getClientId(): string {
   } catch {
     /* geen localStorage */
   }
-  return (import.meta.env.VITE_MSAL_CLIENT_ID as string | undefined)?.trim() ?? '';
+  return (import.meta.env.VITE_MSAL_CLIENT_ID as string | undefined)?.trim() || DEFAULT_CLIENT_ID;
 }
 
 export function setClientId(id: string) {
