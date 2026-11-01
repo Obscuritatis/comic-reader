@@ -177,3 +177,4 @@ hr { border: 0; border-top: 1px solid var(--bg3); margin: 4px 0; width: 100%; }
 @media (max-width: 600px), (hover: none) and (pointer: coarse) and (max-width: 900px) {
   .r-tools .zoom-btn { display: none; }
 }
+.steps { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }

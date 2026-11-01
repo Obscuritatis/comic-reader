@@ -11,6 +11,7 @@ import { openBrowser } from './views/browser';
 import { openDialog } from './views/dialogs';
 import { getClientId, setClientId, redirectUri } from './config';
 import type { Comic } from './types';
+import { installButton, onInstallChange } from './install';
 
 const app = document.getElementById('app')!;
 
@@ -219,8 +220,10 @@ async function start() {
     },
     openLocal,
     account: accountButton,
+    installButton,
     settings: () => void openSettings(),
   });
+  onInstallChange(() => view.render());
   if (auth.currentAccount()) void library.sync();
   // als je terugkomt naar de app (bv. van tablet naar pc), opnieuw synchroniseren
   document.addEventListener('visibilitychange', () => {

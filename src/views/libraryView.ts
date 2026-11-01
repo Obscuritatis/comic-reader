@@ -25,6 +25,7 @@ export interface LibraryActions {
   addFromOneDrive(): void;
   openLocal(): void;
   account(): HTMLElement;
+  installButton(): HTMLElement | null;
   settings(): void;
 }
 
@@ -105,6 +106,7 @@ export function mountLibrary(container: HTMLElement, actions: LibraryActions) {
         h('span', { class: `sync sync-${sync}`, title: 'Je bibliotheek wordt bewaard op je OneDrive, zodat ze op al je toestellen gelijk is.' }, syncLabel),
         h('button', { class: 'btn primary', onclick: actions.addFromOneDrive }, '+ OneDrive'),
         h('button', { class: 'btn', onclick: actions.openLocal, title: 'Een bestand van dit toestel openen (wordt niet bewaard)' }, 'Bestand openen'),
+        actions.installButton(),
         actions.account(),
         h('button', { class: 'icon-btn', title: 'Instellingen', onclick: actions.settings }, '⚙'),
       ),
